@@ -3,7 +3,7 @@
  * <p>
  * Created on 29.07.20
  * <p>
- * Copyright (C) 2020 Volkswagen AG, All rights reserved.
+ *
  */
 package com.example.multitenant;
 
