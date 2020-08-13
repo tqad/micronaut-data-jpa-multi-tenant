@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="articles" author="tariqahmed">
+        <createTable tableName="ARTICLE" remarks="A table to contain articles">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="business_id" type="varchar(255)"/>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="version" type="int" defaultValue="1">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createSequence cacheSize="20" cycle="false" incrementBy="1" sequenceName="SEQUENCE_ARTICLE" startValue="1000"/>
+    </changeSet>
+
+    <changeSet id="scenario types for articles" author="tariqahmed">
+        <createTable tableName="ARTICLE_SCENARIO_TYPE" remarks="A table to contain relations between article and scenario type">
+            <column name="article_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="scenario_type" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="article_id, scenario_type" constraintName="ARTICLE_SCENARIO_TYPE_PK" tableName="ARTICLE_SCENARIO_TYPE"/>
+        <addUniqueConstraint tableName="ARTICLE_SCENARIO_TYPE" columnNames="article_id, scenario_type"/>
+        <addForeignKeyConstraint baseTableName="ARTICLE_SCENARIO_TYPE" baseColumnNames="article_id"
+                                 constraintName="ARTICLE_SCENARIO_TYPE_FK_ARTICLE"
+                                 referencedTableName="ARTICLE"
+                                 referencedColumnNames="id"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"/>
+    </changeSet>
+</databaseChangeLog>
