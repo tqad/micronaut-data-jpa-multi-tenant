@@ -22,7 +22,7 @@ import io.micronaut.http.annotation.Post;
 /**
  * @author Tariq Ahmed
  */
-@Controller("/article")
+@Controller("/articles")
 public class ArticleController {
 
     @Inject
