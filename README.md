@@ -2,8 +2,8 @@
 
 This sample project shows how to use micronaut and hibernate with multi-tenancy on database level.
 
-Included: 
--  [Micronaut 2.0.1](https://micronaut.io/)
+Included:
+- [Micronaut](https://micronaut.io/)
 - [Micronaut Hibernate JPA documentation](https://micronaut-projects.github.io/micronaut-sql/latest/guide/index.html#hibernate)
 - [Micronaut Hikari JDBC Connection Pool documentation](https://micronaut-projects.github.io/micronaut-sql/latest/guide/index.html#jdbc)
 - [Micronaut Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
@@ -11,15 +11,25 @@ Included:
 - [https://www.liquibase.org/](https://www.liquibase.org/)
 - [https://www.testcontainers.org/](https://www.testcontainers.org/)
 
-## The solution
-I'm just using the default steps to enable multi-tenancy with hibernate except that I was forced to use a programmatic approach to select the right datasource.  
+##Update for Micronaut 3.6.1
+
+### The solution
+I'm just using the default steps to enable multi-tenancy with hibernate except that I was forced to use a programmatic approach to configure the default jpa configuration.
+
+Configuration in application.yml:
+* ```Datasource``` Configuration for every tenant
+* Default ```JpaConfiguration``` to define which entity packages should be scanned (multi tenancy configuration is done by ```JpaConfigurationCreatedEventListener```)
 
 ### MultiTenantResolver
-To determine the current tenant I'm using micronauts TenantResolver in the Hibernate implementation of CurrentTenantIdentifierResolver.
+Custom implementation of Hibernate ```CurrentTenantIdentifierResolver```.
+Determine the current tenant by using Micronaut-TenantResolver.
 
 ### MultiTenantConnectionProvider
-This class contains the DataSources which were registered in DataEntityManagerFactoryBean.
+Custom implementation of Hibernate ```AbstractDataSourceBasedMultiTenantConnectionProviderImpl```.
+Provide the tenant related ```DataSource``` by utilizing the Micronaut ```BeanProvider<DataSource>``` and ```DataSourceResolver```.
 
-### MultiTenantDataEntityManagerFactoryBean
-This class override the default implementation from micronaut by registering the datasources and add multi tenancy 
-properties to jpa before the session build. 
+### JpaConfigurationCreatedEventListener
+Programmatic approach to configure the default ```JpaConfiguration``` to set the **multi tenancy** parameter for Hibernate.
+
+### ~~MultiTenantDataEntityManagerFactoryBean~~
+_removed - no longer needed_

@@ -9,8 +9,6 @@ package com.example.controller;
 
 import java.util.Optional;
 
-import javax.inject.Inject;
-
 import com.example.entity.Article;
 import com.example.repo.ArticleJpaRepo;
 import com.example.repo.ArticleRepository;
@@ -18,6 +16,7 @@ import com.example.repo.MixedArticleRepo;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
+import jakarta.inject.Inject;
 
 /**
  * @author Tariq Ahmed

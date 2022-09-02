@@ -1,5 +1,5 @@
-/**
- * TestFilter.java
+/*
+ * MultiTenantResolver.java
  * <p>
  * Created on 29.07.20
  * <p>
@@ -10,19 +10,16 @@ package com.example.multitenant;
 
 import java.io.Serializable;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
 import io.micronaut.multitenancy.exceptions.TenantNotFoundException;
 import io.micronaut.multitenancy.tenantresolver.TenantResolver;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+import jakarta.inject.Singleton;
 import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
 
-/**
- * @author Tariq Ahmed
- */
 @Singleton
-public class MultiTenantResolver implements CurrentTenantIdentifierResolver
-{
+@Named("currentTenantResolver")
+public class MultiTenantResolver implements CurrentTenantIdentifierResolver {
     @Inject
     TenantResolver resolver;
 

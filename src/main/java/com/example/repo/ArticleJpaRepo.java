@@ -11,8 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import javax.persistence.EntityGraph;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
@@ -20,6 +18,8 @@ import javax.validation.constraints.NotBlank;
 
 import com.example.entity.Article;
 import io.micronaut.transaction.annotation.ReadOnly;
+import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,7 +48,6 @@ public class ArticleJpaRepo {
     }
 
     @ReadOnly
-    //@io.micronaut.data.jpa.annotation.EntityGraph(attributePaths = "scenarioTypes")   ignored
     public Optional<Article> findById(Long articleId) {
         Map<String, Object> hints = getFullGraphHintMap();
         return Optional.ofNullable(entityManager.find(Article.class, articleId, hints));

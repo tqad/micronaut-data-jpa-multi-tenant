@@ -3,4 +3,4 @@ defaultPackage: com.example
 testFramework: junit
 sourceLanguage: java
 buildTool: gradle
-features: [app-name, data, data-jpa, docker, file-watch, gradle, h2, hibernate-jpa, http-client, java, java-application, jdbc-hikari, junit, liquibase, logback, netty-server, readme, shade, testcontainers, yaml]
+features: [annotation-api, app-name, aws-parameter-store, data, data-jpa, gradle, hamcrest, hibernate-jpa, hibernate-validator, http-client, jackson-databind, java, java-application, jdbc-hikari, junit, liquibase, logback, lombok, micronaut-build, mockito, multi-tenancy, netty-server, openapi, postgres, readme, shade, swagger-ui, test-resources, testcontainers, yaml]

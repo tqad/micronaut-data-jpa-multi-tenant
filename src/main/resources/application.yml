@@ -14,16 +14,20 @@ micronaut:
       swagger-ui:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
+netty:
+  default:
+    allocator:
+      max-order: 3
 datasources:
   default:
-    url: jdbc:h2:mem:devDbAlpha;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:devDbAlpha
     driverClassName: org.h2.Driver
     username: sa
     password: ''
     schema-generate: NONE
     dialect: H2
   beta:
-    url: jdbc:h2:mem:devDbBeta;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:devDbBeta
     driverClassName: org.h2.Driver
     username: sa
     password: ''
@@ -31,13 +35,6 @@ datasources:
     dialect: H2
 jpa:
   default:
-    packages-to-scan:
-      - 'com.example.entity'
-    properties:
-      hibernate:
-        hbm2ddl:
-          auto: validate
-  beta:
     packages-to-scan:
       - 'com.example.entity'
     properties:

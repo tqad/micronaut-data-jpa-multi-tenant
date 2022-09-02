@@ -1,21 +1,17 @@
 package com.example;
 
-import javax.inject.Inject;
-
 import io.micronaut.runtime.EmbeddedApplication;
-import io.micronaut.test.annotation.MicronautTest;
+import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
+import jakarta.inject.Inject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-@MicronautTest(transactional=false)
-public class DemoTest {
-
+@MicronautTest
+class DemoTest {
     @Inject
-    EmbeddedApplication application;
-
+    EmbeddedApplication<?> application;
     @Test
     void testItWorks() {
         Assertions.assertTrue(application.isRunning());
     }
-
 }
