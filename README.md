@@ -11,7 +11,7 @@ Included:
 - [https://www.liquibase.org/](https://www.liquibase.org/)
 - [https://www.testcontainers.org/](https://www.testcontainers.org/)
 
-##Update for Micronaut 3.6.1
+## Update for Micronaut 3.6.1
 
 ### The solution
 I'm just using the default steps to enable multi-tenancy with hibernate except that I was forced to use a programmatic approach to configure the default jpa configuration.
