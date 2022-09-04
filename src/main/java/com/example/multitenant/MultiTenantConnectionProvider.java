@@ -1,10 +1,3 @@
-/*
- * MultiTenantConnectionProvider.java
- *
- * Created on 10.08.2020
- *
- *
- */
 package com.example.multitenant;
 
 import javax.sql.DataSource;
@@ -18,6 +11,10 @@ import jakarta.inject.Singleton;
 import org.hibernate.engine.jdbc.connections.spi.AbstractDataSourceBasedMultiTenantConnectionProviderImpl;
 
 /**
+ * MultiTenantConnectionProvider.java
+ *
+ * Created on 13.08.2020
+ *
  * @author Tariq Ahmed
  */
 @Singleton

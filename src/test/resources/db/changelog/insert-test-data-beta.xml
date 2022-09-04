@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="insert-articles" author="tariqahmed">
+        <insert tableName="ARTICLE">
+            <column name="id" value="100"/>
+            <column name="name" value="Beta Article (NEW_CAR)"/>
+            <column name="business_id" value="ART_100"/>
+            <column name="version" value="1"/>
+        </insert>
+
+        <insert tableName="ARTICLE">
+            <column name="id" value="101"/>
+            <column name="name" value="Beta Article (AFTER_SALES)"/>
+            <column name="business_id" value="ART_101"/>
+            <column name="version" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="assign-types" author="tariqahmed">
+          <insert tableName="ARTICLE_SCENARIO_TYPE">
+            <column name="article_id" value="100"/>
+            <column name="scenario_type" value="NEW_CAR"/>
+          </insert>
+          <insert tableName="ARTICLE_SCENARIO_TYPE">
+            <column name="article_id" value="101"/>
+            <column name="scenario_type" value="AFTER_SALES"/>
+          </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

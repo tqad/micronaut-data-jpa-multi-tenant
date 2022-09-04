@@ -1,10 +1,3 @@
-/*
- * MultiTenantResolver.java
- * <p>
- * Created on 29.07.20
- * <p>
- *
- */
 package com.example.multitenant;
 
 
@@ -17,6 +10,13 @@ import jakarta.inject.Named;
 import jakarta.inject.Singleton;
 import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
 
+/**
+ * MultiTenantResolver.java
+ *
+ * Created on 13.08.2020
+ *
+ * @author Tariq Ahmed
+ */
 @Singleton
 @Named("currentTenantResolver")
 public class MultiTenantResolver implements CurrentTenantIdentifierResolver {

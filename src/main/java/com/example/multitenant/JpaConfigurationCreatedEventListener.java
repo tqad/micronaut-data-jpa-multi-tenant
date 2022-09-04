@@ -1,8 +1,3 @@
-/*
- * JpaConfigurationCreatedEventListener.java
- *
- * Created on 01.09.2022
- */
 package com.example.multitenant;
 
 import io.micronaut.configuration.hibernate.jpa.JpaConfiguration;
@@ -13,6 +8,13 @@ import jakarta.inject.Singleton;
 import org.hibernate.MultiTenancyStrategy;
 import org.hibernate.cfg.AvailableSettings;
 
+/**
+ * JpaConfigurationCreatedEventListener.java
+ *
+ * Created on 01.09.2022
+ *
+ * @author Tariq Ahmed
+ */
 @Singleton
 public class JpaConfigurationCreatedEventListener implements BeanCreatedEventListener<JpaConfiguration> {
 

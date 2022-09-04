@@ -39,12 +39,13 @@ jpa:
       - 'com.example.entity'
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
         hbm2ddl:
           auto: validate
 
 liquibase:
   datasources:
     default:
-      change-log: 'classpath:db/liquibase_changelog.xml'
+      change-log: 'classpath:db/liquibase-changelog.xml'
     beta:
-      change-log: 'classpath:db/liquibase_changelog.xml'
+      change-log: 'classpath:db/liquibase-changelog.xml'

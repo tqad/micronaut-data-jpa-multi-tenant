@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!-- Use the original Schema -->
+    <include file="liquibase-changelog.xml" relativeToChangelogFile="true"/>
+    <!-- Insert Generic Test Data-->
+    <include file="changelog/insert-test-data-generic.xml" relativeToChangelogFile="true"/>
+    <!-- Insert Test Data (Alpha only)-->
+    <include file="changelog/insert-test-data-alpha.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>

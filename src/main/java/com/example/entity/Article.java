@@ -23,6 +23,13 @@ import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
+/**
+ * Article.java
+ *
+ * Created on 13.08.2020
+ *
+ * @author Tariq Ahmed
+ */
 @Entity
 @Table(name = "ARTICLE")
 @NamedEntityGraph(name = Article.GRAPH_WITH_ALL,

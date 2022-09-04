@@ -1,10 +1,3 @@
-/*
- * ArticleJpaRepo.java
- *
- * Created on 13.08.2020
- *
- *
- */
 package com.example.repo;
 
 import java.util.HashMap;
@@ -24,6 +17,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * ArticleJpaRepo.java
+ *
+ * Created on 13.08.2020
+ *
  * @author Tariq Ahmed
  */
 @Singleton

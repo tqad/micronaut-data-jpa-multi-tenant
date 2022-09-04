@@ -1,0 +1,35 @@
+micronaut:
+  application:
+    name: demo
+  multitenancy:
+    tenantresolver:
+      httpheader:
+        header-name: tenantId
+        enabled: true
+datasources:
+  default:
+    url: jdbc:tc:postgresql:10.10-alpine://localhost:5432/devDbAlpha?DB_CLOSE_DELAY=-1&DB_CLOSE_ON_EXIT=FALSE&TC_REUSABLE=TRUE
+    driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+    username: master
+    password: master
+  beta:
+    url: jdbc:tc:postgresql:10.10-alpine://localhost:5432/devDbBeta?DB_CLOSE_DELAY=-1&DB_CLOSE_ON_EXIT=FALSE&TC_REUSABLE=TRUE
+    driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+    username: master
+    password: master
+jpa:
+  default:
+    packages-to-scan:
+      - 'com.example.entity'
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        hbm2ddl:
+          auto: validate
+        show_sql: true
+liquibase:
+  datasources:
+    default:
+      change-log: 'classpath:db/test-changelog-alpha.xml'
+    beta:
+      change-log: 'classpath:db/test-changelog-beta.xml'

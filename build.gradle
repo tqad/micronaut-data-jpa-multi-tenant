@@ -27,11 +27,16 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.h2database:h2")
+    runtimeOnly("org.postgresql:postgresql")
+
+    implementation("org.testcontainers:testcontainers")
+    implementation("org.testcontainers:postgresql")
+
     testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:testcontainers")
     implementation("io.micronaut:micronaut-validation")
     testImplementation("org.hamcrest:hamcrest")
     testImplementation("org.mockito:mockito-core")
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
 }
 
 application {

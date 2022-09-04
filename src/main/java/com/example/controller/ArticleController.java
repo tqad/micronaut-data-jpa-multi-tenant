@@ -1,10 +1,3 @@
-/*
- * ArticleController.java
- *
- * Created on 06.08.2020
- *
- *
- */
 package com.example.controller;
 
 import java.util.Optional;
@@ -19,6 +12,10 @@ import io.micronaut.http.annotation.Post;
 import jakarta.inject.Inject;
 
 /**
+ * ArticleController.java
+ *
+ * Created on 13.08.2020
+ *
  * @author Tariq Ahmed
  */
 @Controller("/articles")
